@@ -9,14 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class SearchComponent {
 
   artists: any[] = [];
+  loading: boolean;
 
   constructor(private spotifyService: SpotifyService) { }
 
   buscar(termino) {
+    this.loading = true;
+
     this.spotifyService.searchArtists(termino)
       .subscribe( (data: any) => {
-        console.log(data);
         this.artists = data;
+        this.loading = false;
       });
   }
 
