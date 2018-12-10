@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col">
+    <input #termino (keyup)="buscar(termino.value)" type="text" class="form-control" placeholder="Buscar artista">
+  </div>
+</div>
+
+<!-- artists -->
+<div class="card-columns mt-5">
+  <div class="card" style="width: 18rem;" *ngFor="let artist of artists">
+    <img class="card-img-top" [src]="artist.images[0].url" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{artist.name}}</h5>
+      <p class="card-text">
+        <span class="badge badge-primary" *ngFor="let gen of artist.genres">{{gen}}</span>
+      </p>
+    </div>
+  </div>
+</div>
