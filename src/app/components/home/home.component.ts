@@ -11,14 +11,24 @@ export class HomeComponent {
   albums: any[] = [];
   loading: boolean;
 
+  error: boolean;
+  errorMessage: string;
+
   constructor( private spotifyService: SpotifyService ) {
     this.loading = true;
+    this.error = false;
 
     // obtiene canciones
     this.spotifyService.getNewReleases()
       .subscribe( (data: any) => {
           this.albums = data;
           this.loading = false;
+
+      }, (errorRes) => {
+        this.loading = false;
+        this.error = true;
+        this.errorMessage = errorRes.error.error.message;
+        console.log(errorRes);
       });
   }
 

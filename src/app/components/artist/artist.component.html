@@ -20,7 +20,7 @@
 
 <!-- tracks -->
 
-<div class="row">
+<div class="row" *ngIf="artist">
   <div class="col">
     <table class="table">
       <thead>
@@ -38,8 +38,9 @@
           <td>{{ track.album.name }}</td>
           <td>{{ track.name }}</td>
           <td>
-            <audio [src]="track.preview_url" controls></audio>
+            <!-- <audio [src]="track.preview_url" controls></audio> -->
             <!-- https://developer.spotify.com/documentation/widgets/generate/play-button/ -->
+            <iframe [src]="track.id | domseguro" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           </td>
         </tr>
       </tbody>

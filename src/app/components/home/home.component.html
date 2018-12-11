@@ -11,4 +11,6 @@
 </div> -->
 
 <app-loading *ngIf="loading"></app-loading>
+<div *ngIf="error" class="alert alert-danger animated fadeIn">{{ errorMessage }}</div>
+
 <app-tarjetas *ngIf="!loading" [items]="albums"></app-tarjetas>
