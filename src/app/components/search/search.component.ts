@@ -13,6 +13,10 @@ export class SearchComponent {
 
   constructor(private spotifyService: SpotifyService) { }
 
+  /**
+   * Obtiene los artistas en base al termino escrito
+   * @param termino valor a buscar
+   */
   buscar(termino) {
     this.loading = true;
 
